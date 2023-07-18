@@ -1,3 +1,4 @@
+//////////////////////// load
 gsap.fromTo(
   ".center__blocksStyle",
   { transformOrigin: "bottom", scaleY: 0 },
@@ -39,11 +40,8 @@ gsap.fromTo(
   { y: 0, opacity: 1, duration: 1, delay: 4 }
 );
 
-// gsap.fromTo(
-//   ".lineImg",
-//   { scaleX: 1, duration: 1,transformOrigin: "right"},
-//   { opacity: 1, scaleX: 20, duration: 1, delay: 4.5 }
-// );
+let deg = gsap.utils.random(25, 115);
+let deg2 = gsap.utils.random(218, 320);
 gsap
   .timeline()
   .fromTo(
@@ -54,16 +52,56 @@ gsap
   .fromTo(".loadTextLeft", { x: 0 }, { x: -410, duration: 1 }, "-=1")
   .to(".lineImg", { scaleX: 0, duration: 0.6 })
   .to(".centerLoadText", { y: -200, duration: 2 })
-  .to(".center__block", { scale: 5, y: -80, duration: 2 }, "-=2.5")
+  .to(".center__block", { scale: 5, y: -80, duration: 1.5 }, "-=2.5")
+
   .fromTo(
     ".center__blockLeft",
-    { backgroundColor: "white"},
-    { transformOrigin: "bottom", backgroundColor: "#FC5C7D", duration: 1 },
-    "-=2"
+    { background: "white)" },
+    {
+      ease: "none",
+      duration: 2,
+      background: "linear-gradient(#7F00FF,#f953c6, #b91d73) ",
+    },
+    "-=2.5"
   )
   .fromTo(
     ".center__blockRight",
-    { backgroundColor: "white" },
-    { transformOrigin: "bottom", backgroundColor: "#6A82FB", duration: 1 },
-    "-=2"
+    { background: "white)" },
+    {
+      ease: "none",
+      duration: 2,
+      background: "linear-gradient(#7F00FF,#FFFFFF) ",
+    },
+    "-=2.5"
+  )
+  .to(".center__block", { y: -1000, duration: 3 }, "-=1.5")
+  .to(
+    ".preload",
+    { background: "white", transform: "top", duration: 4 },
+    "-=2.5"
   );
+
+function deletePreLoad() {
+  let preload = document.querySelector(".preload");
+  preload.remove();
+}
+setTimeout(deletePreLoad, 9000);
+
+//////////////////////// load
+gsap.fromTo(
+  ".textMaximum",
+  { y: 200, x: -450 },
+  { y: 0, x: -450, opacity: 1, duration: 1, delay: 9 }
+);
+gsap.fromTo(".textOF", { y: 200 }, { y: 0, opacity: 1, duration: 9 });
+gsap.fromTo(
+  ".maximumdisignText",
+  { y: 200 },
+  { y: 0, opacity: 1, duration: 1, delay: 9.3 }
+);
+gsap.fromTo(
+  ".lineImgBlack",
+  { scaleX: 1, duration: 1, transformOrigin: "right" },
+  { opacity: 1, scaleX: 9.7, scaleY:4,duration: 1, delay: 11 }
+);
+gsap.fromTo(".textOF", { y: 0 }, { x:-440, opacity: 1, duration: 1,delay: 11 });
