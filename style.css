@@ -116,14 +116,11 @@
 }
 .maximumdisignText{
   margin-top: -20px;
-  justify-content: space-around;
   align-items: center;
 }
 .mainContainer{
   font-size: 7vw;
 }
-/* .maxDisaindContainer{
-} */
-/* .textMaximum{
-  opacity: 0;
-} */
+.maxDisaindContainer{
+  width: 100%;
+} 

@@ -85,23 +85,38 @@ function deletePreLoad() {
   let preload = document.querySelector(".preload");
   preload.remove();
 }
-setTimeout(deletePreLoad, 9000);
+setTimeout(deletePreLoad, 9000); //9000
 
 //////////////////////// load
-gsap.fromTo(
-  ".textMaximum",
-  { y: 200, x: -450 },
-  { y: 0, x: -450, opacity: 1, duration: 1, delay: 9 }
-);
-gsap.fromTo(".textOF", { y: 200 }, { y: 0, opacity: 1, duration: 9 });
-gsap.fromTo(
-  ".maximumdisignText",
-  { y: 200 },
-  { y: 0, opacity: 1, duration: 1, delay: 9.3 }
-);
-gsap.fromTo(
-  ".lineImgBlack",
-  { scaleX: 1, duration: 1, transformOrigin: "right" },
-  { opacity: 1, scaleX: 9.7, scaleY:4,duration: 1, delay: 11 }
-);
-gsap.fromTo(".textOF", { y: 0 }, { x:-440, opacity: 1, duration: 1,delay: 11 });
+
+gsap
+  .timeline()
+  .fromTo(
+    ".textMaximum",
+    { y: 150, opacity: 0 },
+    { y: 0, opacity: 1, duration: 1, delay:9}
+  )
+  .fromTo(
+    ".maximumdisignText",
+    { y: 200, x: 500 },
+    { x: 500, y: 0, opacity: 1, duration: 2 }
+  ).fromTo(
+    ".maxDisaindContainer",
+    { background: "white"},
+    {
+      ease: "none",
+      duration: 1,
+      background: "linear-gradient(to bottom,#bca2e1,#ffffff) ",
+    },
+    "-=1"
+  )
+  .fromTo(
+    ".lineImgBlack",
+    { scaleX: 1, duration: 1, transformOrigin: "right" },
+    { opacity: 1, scaleX: 9.7, scaleY: 4, duration: 1 }
+  )
+  .fromTo(".textOF", { y: 0 }, { x: -440, opacity: 1, duration: 1 }, "-=1")
+  .to(".logoYoyo", {duration: 2, y: -10, repeat: -1, yoyo: true})
+  
+  
+  document.body.style.overflow = "hidden";
